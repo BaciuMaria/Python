@@ -23,7 +23,8 @@ print(f"Primele {n} numere din sirul lui Fibonacci : {rezultat}")
 # Write a function that receives a list of numbers and returns a list of the prime numbers found in it.
 
 numere = [1,2,3,4,5,6,7,8,9,10,11,12,13]
-
+a = [i for i in range(14)]
+print(a)
 def cauta_nr_prime(lista):
    lista_prime= []
    for i in lista:
@@ -32,10 +33,10 @@ def cauta_nr_prime(lista):
    return lista_prime
 
 def este_prim(n):
-   if n == 1:
+   if n <= 1:
       return False
    elif n > 1:
-      for i in range (2,n):
+      for i in range (2,n-1):
          if n % i == 0:
             return False
    return True
@@ -55,10 +56,10 @@ print(f"3.) Lista a: {a}")
 print(f"Lista b: {b}")
 
 def operatii_liste(a, b):
-   intersectie = list(set(a) & set(b))
-   reuniunea = list(set(a) | set(b))
-   diferenta_a_b = list(set(a) - set(b))
-   diferenta_b_a = list(set(b) - set(a))
+   intersectie = [i for i in a if i in b]
+   reuniunea = a + [i for i in b if i not in a]
+   diferenta_a_b = [i for i in a if i not in b]
+   diferenta_b_a = [i for i in b if i not in a]
    return intersectie,reuniunea,diferenta_a_b, diferenta_b_a
 
 rezultat = operatii_liste(a,b)
